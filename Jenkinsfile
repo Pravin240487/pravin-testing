@@ -5,7 +5,7 @@ pipeline {
      AWS_DEFAULT_REGION="us-east-1" 
    }
    agent {
-    label "linux"  
+    label "Built-In Node"  
    }
    stages {
        stage('Build Code') {
