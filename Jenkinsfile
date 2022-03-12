@@ -4,6 +4,7 @@ pipeline {
      PYTHON_VERSION = "3.7"
      AWS_DEFAULT_REGION = "us-east-1" 
    }
+   agent any
    stages {
        stage('Build Code') {
            steps {
