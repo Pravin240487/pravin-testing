@@ -29,6 +29,7 @@ pipeline {
                unzip -o awscliv2.zip
                aws --version
                aws ec2 describe-instances
+               aws s3 ls
                """
   //           }   
                
