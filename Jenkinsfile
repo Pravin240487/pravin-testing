@@ -21,7 +21,6 @@ pipeline {
                unzip awscliv2.zip
                ./aws/install -y
                aws --version
-               """
           }
       }
    }
