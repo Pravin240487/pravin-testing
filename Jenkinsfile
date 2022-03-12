@@ -4,7 +4,13 @@ pipeline {
      PYTHON_VERSION = "3.7"
      AWS_DEFAULT_REGION = "us-east-1" 
    }
-   agent { label "linux" }
+   agent
+    {
+        node {
+        label 'docker-kitchensink-slave'
+        }
+
+    }
    stages {
        stage('Build Code') {
            steps {
