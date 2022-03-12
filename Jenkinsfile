@@ -18,7 +18,7 @@ pipeline {
       stage('Deploy Code') {
           steps {
                sh """
-               yum install sudo
+               lsb_release -a
                echo "Deploying Code"
                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                unzip -o awscliv2.zip
