@@ -24,7 +24,8 @@ pipeline {
                unzip -o awscliv2.zip
                chmod -R 755 ./aws/install
                pwd
-               /usr/local/bin/aws --version
+               cd /usr/local/bin/
+               ls -la 
                """
           }
       }
