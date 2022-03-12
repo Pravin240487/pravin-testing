@@ -1,8 +1,4 @@
 pipeline {
-   environment {
-     TERRAFORM_VERSION = "0.14.10"
-     PYTHON_VERSION = "3.7"
-   }
    agent any
    stages {
        stage('Build Code') {
@@ -10,13 +6,14 @@ pipeline {
                sh """
                echo "Building Artifact"
                """
-                  }
-                           }
+           }
+       }
       stage('Deploy Code') {
           steps {
                sh """
                echo "Deploying Code"
-                }
-                           }
+               """
           }
+      }
+   }
 }
