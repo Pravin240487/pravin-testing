@@ -18,7 +18,7 @@ pipeline {
       stage('Deploy Code') {
           steps {               
     // some block
-             withCredentials([aws(accessKeyVariable:’AWS_ACCESS_KEY_ID’,credentialsId:’spravi’,secretKeyVariable:’AWS_SECRET_ACCESS_KEY’)]) 
+             withCredentials([aws(accessKeyVariable:'AKIAUZDCYUJI4TERXMX3',credentialsId:’spravi’,secretKeyVariable:'54IZxLmPY89r+XNncC1Dp7QGzHL5+zxkpK68eYT5')]) 
              {
                sh """
               
