@@ -16,9 +16,7 @@ pipeline {
            }
        }
       stage('Deploy Code') {
-          steps {
-               def credentialId = "spravi"
-               
+          steps {               
     // some block
                sh """
                aws configure set aws_access_key_id "AKIAUZDCYUJI4TERXMX3"
