@@ -25,6 +25,7 @@ pipeline {
                pwd
                ls -la
                chmod -R 755 ./aws/install
+               aws --version
                ls -la
                pwd
                cd /usr/local/bin/
