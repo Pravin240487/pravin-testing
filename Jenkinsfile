@@ -24,13 +24,13 @@ pipeline {
                unzip -o awscliv2.zip
                pwd
                ls -la
-               chmod -R 755 ./aws/install
-               chmod -R 755 /var/jenkins_home/workspace/pravin-testing_main/aws 
-               aws s3 ls
+               cd /aws
+               ls -la
+               cd ..
+               chmod -R 755 ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+               cd /usr/local/bin/
                ls -la
                pwd
-               cd /usr/local/bin/
-               ls -la 
                """
           }
       }
