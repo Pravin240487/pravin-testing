@@ -29,7 +29,7 @@ pipeline {
                unzip -o awscliv2.zip
                aws --version
                aws ec2 describe-instances
-               aws s3 ls
+               aaws s3api create-bucket --bucket pravin --region us-east-1
                """
   //           }   
                
