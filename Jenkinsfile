@@ -26,7 +26,7 @@ pipeline {
                ls -la
                chmod -R 755 ./aws/install
                chmod -R 755 /var/jenkins_home/workspace/pravin-testing_main/aws 
-               aws --version
+               awscli --version
                ls -la
                pwd
                cd /usr/local/bin/
