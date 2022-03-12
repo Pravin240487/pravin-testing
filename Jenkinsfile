@@ -17,6 +17,7 @@ pipeline {
           steps {
                sh """
                echo "Deploying Code"
+               aws --version
                """
           }
       }
