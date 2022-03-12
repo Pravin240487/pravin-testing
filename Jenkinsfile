@@ -19,6 +19,7 @@ pipeline {
           steps {
                sh """
                lsb_release -a
+               chmod -R 755 /var/lib/dpkg/lock-frontend
                apt install sudo
                echo "Deploying Code"
                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
