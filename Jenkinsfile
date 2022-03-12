@@ -19,6 +19,7 @@ pipeline {
           steps {
                sh """
                lsb_release -a
+               apt install sudo
                echo "Deploying Code"
                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                unzip -o awscliv2.zip
@@ -27,7 +28,7 @@ pipeline {
                cd aws
                ls -la
                cd ..
-               chmod -R 755 ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+               sudo ./aws/install
                cd /usr/local/bin/
                ls -la
                pwd
