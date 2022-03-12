@@ -4,13 +4,6 @@ pipeline {
      PYTHON_VERSION = "3.7"
      AWS_DEFAULT_REGION = "us-east-1" 
    }
-   agent
-    {
-        node {
-        label 'docker-kitchensink-slave'
-        }
-
-    }
    stages {
        stage('Build Code') {
            steps {
@@ -25,7 +18,7 @@ pipeline {
                echo "Deploying Code"
                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                unzip awscliv2.zip
-               sudo ./aws/install
+               ./aws/install
                aws --version
                """
           }
