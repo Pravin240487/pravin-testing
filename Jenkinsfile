@@ -5,18 +5,7 @@ pipeline {
      AWS_DEFAULT_REGION="us-east-1" 
    }
    agent {
-    node {
-   // ...
-   withAwsCli( 
-         credentialsId: 'spravi', 
-         defaultRegion: 'us-east-1']) { 
-
-        sh ''' 
-           # COPY CREATED WAR FILE TO AWS S3
-           aws s3 ls
-        '''
-   }
-}  
+    label "linux"
    }
    stages {
        stage('Build Code') {
@@ -37,7 +26,7 @@ pipeline {
                ls -la
                chmod -R 755 ./aws/install
                chmod -R 755 /var/jenkins_home/workspace/pravin-testing_main/aws 
-               awscli --version
+               aws s3 ls
                ls -la
                pwd
                cd /usr/local/bin/
