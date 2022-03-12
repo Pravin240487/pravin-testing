@@ -17,6 +17,8 @@ pipeline {
        }
       stage('Deploy Code') {
           steps {
+               withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+    // some block
                sh """
                lsb_release -a
                echo "Deploying Code"
@@ -24,6 +26,8 @@ pipeline {
                unzip -o awscliv2.zip
                aws --version
                """
+                }
+               
           }
       }
    }
