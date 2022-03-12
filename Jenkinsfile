@@ -24,7 +24,7 @@ pipeline {
                unzip -o awscliv2.zip
                pwd
                ls -la
-               cd /aws
+               cd aws
                ls -la
                cd ..
                chmod -R 755 ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
