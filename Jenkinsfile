@@ -3,6 +3,7 @@ pipeline {
      TERRAFORM_VERSION = "0.14.10"
      PYTHON_VERSION = "3.7"
      AWS_DEFAULT_REGION="us-east-1" 
+     THE_BUTLER_SAYS_SO=credentials('spravi') 
    }
    agent {
     label "linux"
@@ -18,8 +19,8 @@ pipeline {
       stage('Deploy Code') {
           steps {               
     // some block
-             withCredentials([aws(accessKeyVariable:'AKIAUZDCYUJI4TERXMX3',credentialsId:’spravi’,secretKeyVariable:'54IZxLmPY89r+XNncC1Dp7QGzHL5+zxkpK68eYT5')]) 
-             {
+    //         withCredentials([aws(accessKeyVariable:'AKIAUZDCYUJI4TERXMX3',credentialsId:’spravi’,secretKeyVariable:'54IZxLmPY89r+XNncC1Dp7QGzHL5+zxkpK68eYT5')]) 
+   //          {
                sh """
               
                lsb_release -a
@@ -28,7 +29,7 @@ pipeline {
                unzip -o awscliv2.zip
                aws --version
                """
-             }   
+  //           }   
                
           }
       }
