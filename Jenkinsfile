@@ -22,8 +22,7 @@ pipeline {
                echo "Deploying Code"
                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                unzip -o awscliv2.zip
-               chmod -R 755 ./aws/install /usr/local/aws-cli /usr/local/bin
-               aws --version
+               chmod -R 755 ./aws/install --install-dir /usr/local/aws-cli --bin-dir /usr/local/bin
                """
           }
       }
