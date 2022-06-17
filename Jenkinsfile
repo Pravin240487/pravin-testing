@@ -5,7 +5,7 @@ pipeline {
     }
     stages
     {
-        stage("Hello") {
+        stage("ConfigAWS") {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key-pravin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) 
                     {
@@ -23,5 +23,15 @@ pipeline {
                     
                 }
             }
+        stage("TerraformBuild") {
+            steps {
+                        sh """
+                        cd terraform/s3bucket
+                        terraform init -input=false
+                        terraform plan -out=tfplan -input=false
+                        terraform apply -auto-approve
+                        """    
+                }
+            }         
     }
     }
