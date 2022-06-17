@@ -26,7 +26,6 @@ pipeline {
         stage("TerraformBuild") {
             steps {
                         sh """
-                        cd terraform/s3bucket
                         terraform init -input=false
                         terraform plan -out=tfplan -input=false
                         terraform apply -auto-approve
