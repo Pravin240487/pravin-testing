@@ -23,7 +23,7 @@ pipeline {
                     
                 }
             }
-        stage("TerraformBuild") {
+        stage("TerraformInit") {
             steps {
 
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key-pravin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) 
@@ -36,5 +36,28 @@ pipeline {
                     }   
                 }
             }         
+        stage("TerraformValidate") {
+            steps {
+
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key-pravin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) 
+                    {                
+                        sh """
+                        terraform plan -out=tfplan -input=false
+                        """
+                    }   
+                }
+            }         
+        stage("TerraformApply") {
+            steps {
+
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key-pravin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) 
+                    {                
+                        sh """
+                        terraform apply -auto-approve
+                        """
+                    }   
+                }
+            }         
+        
     }
     }
