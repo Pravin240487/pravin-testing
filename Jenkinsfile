@@ -2,7 +2,7 @@ pipeline {
   agent none
   stages {
     stage('input') {
-      
+      agent any
       input {
         message "What is your first name?"
         ok "Submit"
