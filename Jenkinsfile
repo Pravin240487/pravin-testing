@@ -1,8 +1,17 @@
+def user
+node {
+  wrap([$class: 'BuildUser']) {
+    user = env.BUILD_USER_ID
+  }
+  
+}
+
 pipeline {
     agent
     {
         label 'linux'
     }
+    def mailtorecipents = 'sendtopravin@gmail.com'
     stages
     {
         stage("ConfigAWS") {
@@ -59,5 +68,26 @@ pipeline {
                 }
             }         
         
+    }
+    post
+    {
+        success
+        {
+            emailext (
+                to: "pravinsoundararajan@tonikbank.com",
+                subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
+            )
+        }
+        failure
+        {
+            emailext (
+                to: "pravinsoundararajan@tonikbank.com",
+                subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: """<p>FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""
+            )
+        }
     }
     }
