@@ -1,11 +1,3 @@
-def user
-node {
-  wrap([$class: 'BuildUser']) {
-    user = env.BUILD_USER_ID
-  }
-  
-}
-
 pipeline {
     agent
     {
