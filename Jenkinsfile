@@ -1,8 +1,12 @@
 pipeline {
-    agent none
+     agent
+     {
+        label 'linux'
+     }
      stages {
+        
         stage('input') {
-        agent any
+        agent none     
         input {
           message "What is your first name?"
           ok "Submit"
