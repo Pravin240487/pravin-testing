@@ -13,8 +13,7 @@ pipeline {
         steps {
           echo "Good Morning, $FIRST_NAME"
           sh '''
-            hostname
-            cat /etc/redhat-release
+            echo "Hello Pravin !!!"
           '''
         }
         }   
