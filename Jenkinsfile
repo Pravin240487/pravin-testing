@@ -11,7 +11,6 @@ pipeline {
     {
         label 'linux'
     }
-    def mailtorecipents = 'sendtopravin@gmail.com'
     stages
     {
         stage("ConfigAWS") {
