@@ -8,14 +8,14 @@ pipeline {
         stage('input') {
         agent none     
         input {
-          message "What is your first name?"
+          message "Please Approve or Abort to proceed further?"
           ok "Submit"
           parameters {
-            string(defaultValue: 'Dave', name: 'FIRST_NAME', trim: true) 
+            string(defaultValue: 'Approve', name: 'ACTION', trim: true) 
           }
         }
         steps {
-          echo "Good Morning, $FIRST_NAME"
+          echo "It was $ACTION ed !!! "
           sh '''
             echo "Hello Pravin !!!"
           '''
